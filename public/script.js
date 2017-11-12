@@ -106,10 +106,10 @@
 
 
 
-    //////////////////////////////////// Code not realted to pdf
+    //////////////////////////////////// Code not related to pdf
 
     let canvass = new fabric.Canvas('c', { isDrawingMode: true });
-    let saveData = {1: ''};
+    let saveData = {};
 
 
     function changePage(curPage, nextPage) {
@@ -125,7 +125,7 @@
     document.getElementById('clear').addEventListener('click', clear);
 
 
-    // Run when canvas is modified
+    // Send canvas changes over socket
     let modifiedHandler = function (evt) {
         console.log("moodded");
         socket.emit('drawingComplete', [pageNum, JSON.stringify(canvass)]);
@@ -133,6 +133,8 @@
     canvass.on('path:created', modifiedHandler);
 
     let socket = io.connect(window.location.href);
+
+    //Update canvas from socket message
     socket.on('drawThis', updateDrawing);
     function updateDrawing(data){
         console.log(data);

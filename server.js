@@ -1,13 +1,13 @@
-var express = require('express');
-console.log("Starting server");
-var app = express();
-var server = app.listen(3000);
+let express = require('express');
+let app = express();
+let server = app.listen(3000);
 app.use(express.static('public'));
 
+console.log("Starting server");
 
 
-var socket = require('socket.io');
-var io = socket(server);
+let socket = require('socket.io');
+let io = socket(server);
 io.sockets.on('connection', newConnection);
 
 //Stores all drawings for each slide
@@ -22,6 +22,7 @@ function newConnection(socket){
     //Sends each new connection current state data
     socket.emit('stateData', stateData);
     
+    //When we recieve a drawing, send it out to everyone
     socket.on('drawingComplete', sendDrawing);
     function sendDrawing(data){
         stateData[data[0]] = data[1];
