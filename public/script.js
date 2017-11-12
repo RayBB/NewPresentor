@@ -111,7 +111,13 @@
     let canvass = new fabric.Canvas('c', { isDrawingMode: true });
     let saveData = {};
 
-
+    // Needed for some reason?
+    setTimeout(function () {
+        canvass.setWidth(document.querySelector('.insideWrapper').clientWidth);
+        canvass.setHeight(document.querySelector('.insideWrapper').clientHeight);
+    }, 1000);
+    
+    
     function changePage(curPage, nextPage) {
         saveData[curPage] = JSON.stringify(canvass);
         canvass.clear();
