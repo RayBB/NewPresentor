@@ -109,33 +109,35 @@
     //////////////////////////////////// Code not realted to pdf
 
     let canvass = new fabric.Canvas('c', { isDrawingMode: true });
-    setTimeout(function () {
+    
+    /*setTimeout(function () {
         canvass.setWidth(document.querySelector('.insideWrapper').clientWidth);
         canvass.setHeight(document.querySelector('.insideWrapper').clientHeight);
-    }, 1000);
+    }, 10000);
+    */
 
     let saveData = {1: ''};
     function nextClicked(curPage, nextPage) {
         saveData[curPage] = JSON.stringify(canvass);
-        canvass.clear();// might not need this
+        canvass.clear();
         canvass.loadFromJSON(saveData[nextPage]);
     }
 
     function clear(){
-        canvass.clear();// might not need this
+        canvass.clear();
         modifiedHandler();
     }
     document.getElementById('clear').addEventListener('click', clear);
 
 
+    // Run when canvas is modified
     var modifiedHandler = function (evt) {
         console.log("moodded");
         socket.emit('drawingComplete', [pageNum, JSON.stringify(canvass)]);
-        
     };
     canvass.on('path:created', modifiedHandler);
 
-    var socket = io.connect("http://10.33.79.131:3000/");
+    var socket = io.connect(window.location.href);
     socket.on('drawThis', updateDrawing);
     function updateDrawing(data){
         console.log(data);

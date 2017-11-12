@@ -10,6 +10,7 @@ var socket = require('socket.io');
 var io = socket(server);
 io.sockets.on('connection', newConnection);
 
+//Stores all drawings for each slide
 let stateData = {};
 
 function newConnection(socket){
