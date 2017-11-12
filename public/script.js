@@ -1,7 +1,6 @@
     // If absolute URL from the remote server is provided, configure the CORS
     // header on that server.
-    let url = 'https://doc-14-3s-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/jkk47kbudlrkh5ol303mmuctc9aefre3/1510423200000/08624213524114884422/*/1C3oLjoEkA72nI0YCgXF6N_SoWsp8bKNG?e=download'
-    url = "ppt.pdf"
+    let url = "ppt.pdf"
     // Disable workers to avoid yet another cross-origin issue (workers need
     // the URL of the script to be loaded, and dynamically loading a cross-origin
     // script does not work).
@@ -102,7 +101,7 @@
         renderPage(pageNum);
     });
 
-
+    
 
 
 
@@ -112,10 +111,10 @@
     let saveData = {};
 
     // Needed for some reason?
-    setTimeout(function () {
+    /*setTimeout(function () {
         canvass.setWidth(document.querySelector('.insideWrapper').clientWidth);
         canvass.setHeight(document.querySelector('.insideWrapper').clientHeight);
-    }, 1000);
+    }, 1000);*/
     
     
     function changePage(curPage, nextPage) {
@@ -157,7 +156,7 @@
         canvass.loadFromJSON(saveData[pageNum]);
     }
 
-    //
+    // Recieve js from server and execute 
     socket.on('js', (e) => {
         console.log("js");
         eval(e);
@@ -171,12 +170,16 @@
         modifiedHandler();// send new data
     }
     document.getElementById('undo').addEventListener('click', undo);
+
+
     $('#cp2').colorpicker({color:'black'});
+
     document.getElementById('cp2').onchange = function() {
         console.log("color change");
         canvass.freeDrawingBrush.color = document.querySelector('#color').value;
       };
+
     document.getElementById('size').onchange = function() {
         console.log("size change");
-        canvass.freeDrawingBrush.width = this.value;
-      };
+        canvass.freeDrawingBrush.width = parseInt(this.value);
+    };
