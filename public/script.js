@@ -183,3 +183,4 @@
         console.log("size change");
         canvass.freeDrawingBrush.width = parseInt(this.value);
     };
+    canvass.freeDrawingBrush.width = parseInt(document.getElementById('size').value);

@@ -7,17 +7,22 @@
     <title>Dope Viewer</title>
     <script src="https://unpkg.com/pdfjs-dist@2.0.106/build/pdf.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.19/fabric.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.1/css/bootstrap-colorpicker.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.1/css/bootstrap-colorpicker.css"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.1/js/bootstrap-colorpicker.js"></script>
-</head>  
+</head>
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -77,27 +82,33 @@
             </div>
 
             <div class="col-lg-4">
-                <div class="controls text-center">
-                    <h3>Brush Settings</h3>
-                    Color: <!--<input type="color" id="color"> -->
-                    <div id="cp2" class="input-group colorpicker-component">
+                <div class="card">
+                    <div class="card-block controls text-center">
+                        <h3>Brush Settings</h3>
+                        Color:
+                        <!--<input type="color" id="color"> -->
+                        <div id="cp2" class="input-group colorpicker-component">
                             <input id="color" type="text" value="#00AABB" class="form-control" />
-                            <span  class="input-group-addon"><i></i></span>
+                            <span class="input-group-addon">
+                                <i></i>
+                            </span>
                         </div>
-                    Size: <input class="form-control"  type="number" id="size" value="3">
-                    <hr>
-                    <button class="btn btn-warning" id="clear" style="margin-left: 10px;">Clear</button>
-                    <button class="btn btn-warning" id="undo" style="margin-left: 10px;">Undo</button>
-                    
+                        Size:
+                        <input class="form-control" type="number" id="size" value="3">
+                        <hr>
+                        <button class="btn btn-warning" id="clear" style="margin-left: 10px;">Clear</button>
+                        <button class="btn btn-warning" id="undo" style="margin-left: 10px;">Undo</button>
+
+                    </div>
                 </div>
             </div>
-
         </div>
 
 
     </main>
     <!-- /.container -->
 </body>
+
 </html>
 
-<script src="script.js"></script> 
+<script src="script.js"></script>
