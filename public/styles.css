@@ -1,0 +1,38 @@
+
+body {
+  apadding-top: 1rem;
+}
+
+.outsideWrapper {
+  width: 75%;
+  height: 530px;
+  margin: auto;
+  border: 1px solid blue;
+  margin-top: 5px;
+}
+.controls {
+  padding:5px;
+}
+
+.insideWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.coveredImage {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.coveringCanvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(255, 0, 0, 0);
+}
