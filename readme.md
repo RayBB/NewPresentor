@@ -4,8 +4,8 @@ A program designed to bring UCSD's Ubiquitous Presenter into the modern age.
 
 ## Setup
 ```bash
-git clone ....
-cd upres2
+git clone https://github.com/RayBB/NewPresentor.git
+cd NewPresentor
 npm install
 nodemon server.js
 ```
@@ -13,4 +13,3 @@ nodemon server.js
 ## TODO:
 * Feature to change size / color of pencil
 * Figure out Erease / Undo (see https://jsfiddle.net/Fidel90/x35uou5w/)
-* 
