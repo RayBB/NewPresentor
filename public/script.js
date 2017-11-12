@@ -107,7 +107,7 @@
 
 
     //////////////////////////////////// Code not related to pdf
-
+    
     let canvass = new fabric.Canvas('c', { isDrawingMode: true});
     let saveData = {};
 
