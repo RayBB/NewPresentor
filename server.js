@@ -17,13 +17,11 @@ function newConnection(socket){
     socket.on('disconnect', function(){
         console.log('user disconnected ' + socket.id);
     });
-    //socket.emit('stateData', stateData);
+
+    //Sends each new connection current state data
     socket.emit('stateData', stateData);
-    //socket.broadcast.to(socket.id).emit('stateData', stateData);
     
-
     socket.on('drawingComplete', sendDrawing);
-
     function sendDrawing(data){
         stateData[data[0]] = data[1];
         socket.broadcast.emit('drawThis', data);
