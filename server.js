@@ -1,6 +1,11 @@
 let express = require('express');
 let app = express();
 let server = app.listen(3000);
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 app.use(express.static('public'));
 
 console.log("Starting server");
@@ -28,5 +33,10 @@ function newConnection(socket){
         stateData[data[0]] = data[1];
         socket.broadcast.emit('drawThis', data);
     }
+
+    socket.on('js', (e) => {
+        console.log("JS Recieved");
+        io.sockets.emit('js', e);
+    })
 
 }

@@ -1,8 +1,8 @@
 .outsideWrapper {
-  width: 75%;
+  awidth: 800px;
   height: 530px;
   margin: auto;
-  border: 1px solid blue;
+  aborder: 1px solid blue;
   margin-top: 5px;
 }
 .controls {

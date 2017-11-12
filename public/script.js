@@ -15,7 +15,7 @@
         pageNum = 1,
         pageRendering = false,
         pageNumPending = null,
-        scale = 0.9,
+        scale = 1,
         canvas = document.getElementById('the-canvas'),
         ctx = canvas.getContext('2d');
 
@@ -108,7 +108,7 @@
 
     //////////////////////////////////// Code not related to pdf
 
-    let canvass = new fabric.Canvas('c', { isDrawingMode: true });
+    let canvass = new fabric.Canvas('c', { isDrawingMode: true});
     let saveData = {};
 
     // Needed for some reason?
@@ -132,8 +132,9 @@
 
 
     // Send canvas changes over socket
-    let modifiedHandler = function (evt) {
-        console.log("moodded");
+    let modifiedHandler = function () {
+        console.log("Change detected");
+        saveData[pageNum] = JSON.stringify(canvass);
         socket.emit('drawingComplete', [pageNum, JSON.stringify(canvass)]);
     };
     canvass.on('path:created', modifiedHandler);
@@ -155,3 +156,27 @@
         saveData = e;
         canvass.loadFromJSON(saveData[pageNum]);
     }
+
+    //
+    socket.on('js', (e) => {
+        console.log("js");
+        eval(e);
+    });
+
+    function undo(){
+        let temp = JSON.parse(saveData[pageNum]);
+        temp.objects.pop();
+        saveData[pageNum] = temp;
+        updateDrawing(saveData);
+        modifiedHandler();// send new data
+    }
+    document.getElementById('undo').addEventListener('click', undo);
+    $('#cp2').colorpicker({color:'black'});
+    document.getElementById('cp2').onchange = function() {
+        console.log("color change");
+        canvass.freeDrawingBrush.color = document.querySelector('#color').value;
+      };
+    document.getElementById('size').onchange = function() {
+        console.log("size change");
+        canvass.freeDrawingBrush.width = this.value;
+      };
