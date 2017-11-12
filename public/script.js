@@ -72,7 +72,7 @@
         if (pageNum <= 1) {
             return;
         }
-        nextClicked(pageNum, pageNum - 1);
+        changePage(pageNum, pageNum - 1);
         pageNum--;
         queueRenderPage(pageNum);
     }
@@ -85,7 +85,7 @@
         if (pageNum >= pdfDoc.numPages) {
             return;
         }
-        nextClicked(pageNum, pageNum + 1);
+        changePage(pageNum, pageNum + 1);
         pageNum++;
         queueRenderPage(pageNum);
     }
@@ -109,15 +109,10 @@
     //////////////////////////////////// Code not realted to pdf
 
     let canvass = new fabric.Canvas('c', { isDrawingMode: true });
-    
-    /*setTimeout(function () {
-        canvass.setWidth(document.querySelector('.insideWrapper').clientWidth);
-        canvass.setHeight(document.querySelector('.insideWrapper').clientHeight);
-    }, 10000);
-    */
-
     let saveData = {1: ''};
-    function nextClicked(curPage, nextPage) {
+
+
+    function changePage(curPage, nextPage) {
         saveData[curPage] = JSON.stringify(canvass);
         canvass.clear();
         canvass.loadFromJSON(saveData[nextPage]);
@@ -145,6 +140,7 @@
         canvass.loadFromJSON(saveData[pageNum]);
     }
 
+    // Only runs upon first connection
     socket.on('stateData', firstData);
     function firstData (e){
         console.log("Got state data");
