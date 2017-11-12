@@ -1,6 +1,6 @@
     // If absolute URL from the remote server is provided, configure the CORS
     // header on that server.
-    var url = 'https://doc-14-3s-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/jkk47kbudlrkh5ol303mmuctc9aefre3/1510423200000/08624213524114884422/*/1C3oLjoEkA72nI0YCgXF6N_SoWsp8bKNG?e=download'
+    let url = 'https://doc-14-3s-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/jkk47kbudlrkh5ol303mmuctc9aefre3/1510423200000/08624213524114884422/*/1C3oLjoEkA72nI0YCgXF6N_SoWsp8bKNG?e=download'
     url = "ppt.pdf"
     // Disable workers to avoid yet another cross-origin issue (workers need
     // the URL of the script to be loaded, and dynamically loading a cross-origin
@@ -131,13 +131,13 @@
 
 
     // Run when canvas is modified
-    var modifiedHandler = function (evt) {
+    let modifiedHandler = function (evt) {
         console.log("moodded");
         socket.emit('drawingComplete', [pageNum, JSON.stringify(canvass)]);
     };
     canvass.on('path:created', modifiedHandler);
 
-    var socket = io.connect(window.location.href);
+    let socket = io.connect(window.location.href);
     socket.on('drawThis', updateDrawing);
     function updateDrawing(data){
         console.log(data);
