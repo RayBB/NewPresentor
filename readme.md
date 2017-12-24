@@ -12,4 +12,10 @@ nodemon server.js
 
 ## TODO:
 * Feature to change size / color of pencil
-* Figure out Erease / Undo (see https://jsfiddle.net/Fidel90/x35uou5w/)
+* Figure out erase / undo (see https://jsfiddle.net/Fidel90/x35uou5w/)
+
+## Dependencies
+* socket.io
+* express
+* Fabric.js
+* PDF.js
